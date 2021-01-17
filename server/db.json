@@ -1,0 +1,9 @@
+{
+    "products": [{
+        "id": 1,
+        "name": "Lenovo Ideapad 320",
+        "price": 2300.00,
+        "imageUrl": "https://www.lenovo.com/medias/subseries-hero-image-ideapad-320-15-725x515.png?context=bWFzdGVyfHJvb3R8NTM5ODl8aW1hZ2UvcG5nfGg2OS9oNDIvOTQ3NDYxNDg4NjQzMC5wbmd8OTk4OGZiOWZkNDcxNzQ2ODgwMTY4YjAyZDBiYjg0MmQ4NWEyMjg3MjExOGJkZjkxZDEyNTQ5NDhhNGUzZWU2OA",
+        "quantity": 100
+    }]
+}
