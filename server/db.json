@@ -1,9 +1,17 @@
 {
     "products": [{
-        "id": 1,
-        "name": "Lenovo Ideapad 320",
-        "price": 2300.00,
-        "imageUrl": "https://www.lenovo.com/medias/subseries-hero-image-ideapad-320-15-725x515.png?context=bWFzdGVyfHJvb3R8NTM5ODl8aW1hZ2UvcG5nfGg2OS9oNDIvOTQ3NDYxNDg4NjQzMC5wbmd8OTk4OGZiOWZkNDcxNzQ2ODgwMTY4YjAyZDBiYjg0MmQ4NWEyMjg3MjExOGJkZjkxZDEyNTQ5NDhhNGUzZWU2OA",
-        "quantity": 100
-    }]
+            "id": 1,
+            "name": "Lenovo Ideapad 320",
+            "price": 2300.00,
+            "imageUrl": "https://www.lenovo.com/medias/subseries-hero-image-ideapad-320-15-725x515.png?context=bWFzdGVyfHJvb3R8NTM5ODl8aW1hZ2UvcG5nfGg2OS9oNDIvOTQ3NDYxNDg4NjQzMC5wbmd8OTk4OGZiOWZkNDcxNzQ2ODgwMTY4YjAyZDBiYjg0MmQ4NWEyMjg3MjExOGJkZjkxZDEyNTQ5NDhhNGUzZWU2OA",
+            "quantity": 100
+        },
+        {
+            "id": 2,
+            "name": "Xiaomi redmi 5 plus",
+            "price": 1800.00,
+            "imageUrl": "https://www.sbsmobile.com/gbr/160973-thickbox_default/skinny-cover-for-xiaomi-redmi-5-plus.jpg",
+            "quantity": 170
+        }
+    ]
 }
