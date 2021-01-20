@@ -8,6 +8,9 @@ import { ProductModule } from './modules/product/product.module';
 
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+
+import { CustomerSupportEffects } from './store/effects/customer-support.effects';
 
 import { reducers, metaReducers } from './store';
 
@@ -30,7 +33,8 @@ import { environment } from '../environments/environment';
     ProductModule,
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     StoreModule.forRoot(reducers, { metaReducers }),
-    !environment.production ? StoreDevtoolsModule.instrument() : []
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    EffectsModule.forRoot([CustomerSupportEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]
