@@ -1,17 +1,11 @@
-.customer-support-button-container {
-    position: fixed;
-    right: 50px;
-    bottom: 50px;
-}
-
 .support-out-icon {
     font-size: 30px;
     border: solid gray 2px;
     border-radius: 100%;
     width: 60px;
     height: 60px;
-    padding: 10px;
+    padding-top: 5px;
     text-align: center;
     background-color: lime;
-    color: white;
+    color: lightgoldenrodyellow;
 }
