@@ -10,3 +10,5 @@ export const sendMessageStatus = createAction(
   '[Customer Support Effect] Send Customer Message Status',
   props<{ isSentSuccess: boolean }>()
 );
+
+export const clearForm = createAction('[Customer Support Component] Clear From');

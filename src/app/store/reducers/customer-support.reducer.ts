@@ -27,5 +27,12 @@ export const reducer = createReducer(
       ...state,
       isSentSuccess: action.isSentSuccess
     };
+  }),
+  on(fromSupportActions.clearForm, (state) => {
+    return {
+      ...state,
+      name: null,
+      isSentSuccess: null
+    };
   })
 );
