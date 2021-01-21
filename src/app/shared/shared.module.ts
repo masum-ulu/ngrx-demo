@@ -4,12 +4,16 @@ import { RouterModule } from '@angular/router';
 
 import { HeaderComponent } from './header/header.component';
 
+const components = [
+    HeaderComponent
+];
+
 @NgModule({
-    declarations: [HeaderComponent],
+    declarations: [components],
     imports: [
         CommonModule,
         RouterModule
     ],
-    exports: [HeaderComponent]
+    exports: [components]
 })
 export class SharedModule { }

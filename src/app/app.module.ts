@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { PagesModule } from './pages/pages.module';
 import { SharedModule } from './shared/shared.module';
+import { AuthModule } from './modules/auth/auth.module';
 import { ProductModule } from './modules/product/product.module';
 
 import { StoreModule } from '@ngrx/store';
@@ -16,13 +17,15 @@ import { reducers, metaReducers } from './store';
 
 import { AppComponent } from './app.component';
 import { CoreComponent } from './core/core.component';
+import { TopBarComponent } from './shared/top-bar/top-bar.component';
 
 import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CoreComponent
+    CoreComponent,
+    TopBarComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +33,7 @@ import { environment } from '../environments/environment';
     HttpClientModule,
     PagesModule,
     SharedModule,
+    AuthModule,
     ProductModule,
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     StoreModule.forRoot(reducers, { metaReducers }),

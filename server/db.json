@@ -1,4 +1,17 @@
 {
+    "users": [{
+            "id": 1,
+            "username": "admin",
+            "email": "admin@admin.com",
+            "isadmin": true
+        },
+        {
+            "id": 2,
+            "username": "user",
+            "email": "user@user.com",
+            "isadmin": false
+        }
+    ],
     "products": [{
             "id": 1,
             "name": "Lenovo Ideapad 320",

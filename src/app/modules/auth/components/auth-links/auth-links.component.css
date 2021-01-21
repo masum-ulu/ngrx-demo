@@ -1,0 +1,18 @@
+.auth-links a {
+    display: inline-block;
+    padding: 0px 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.auth-logout-link {
+    cursor: pointer;
+}
+
+.auth-admin-link {
+    background-color: red;
+}
+
+.user-link {
+    background-color: cornflowerblue;
+}
