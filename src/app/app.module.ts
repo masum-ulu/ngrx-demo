@@ -24,7 +24,7 @@ import { reducers, metaReducers } from './store';
 
 import { AppComponent } from './app.component';
 import { CoreComponent } from './core/core.component';
-import { TopBarComponent } from './shared/top-bar/top-bar.component';
+import { TopBarComponent } from './shared/components/top-bar/top-bar.component';
 
 import { environment } from '../environments/environment';
 
