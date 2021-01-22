@@ -31,9 +31,28 @@ export class AlertEffects {
     { dispatch: false }
   );
 
+  youAreLoggedOut$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(fromAuthActions.logOut),
+        tap(() => this.toastr.warning('You are logged out'))
+      ),
+    { dispatch: false }
+  );
+  comeBackSoon$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(fromAuthActions.logOut),
+        tap(() =>
+          setTimeout(() => {
+            this.toastr.info('Come back soon!');
+          }, 2000)
+        )
+      ),
+    { dispatch: false }
+  );
   constructor(
     private actions$: Actions,
     private toastr: ToastrService
   ) { }
-
 }

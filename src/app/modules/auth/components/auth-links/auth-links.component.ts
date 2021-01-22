@@ -3,6 +3,7 @@ import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from 'src/app/store';
 import * as fromAuthSelectors from 'src/app/store/selectors/auth.selectors';
+import * as fromAuthActions from 'src/app/store/actions/auth.actions';
 
 @Component({
   selector: 'app-auth-links',
@@ -11,6 +12,7 @@ import * as fromAuthSelectors from 'src/app/store/selectors/auth.selectors';
 })
 export class AuthLinksComponent implements OnInit {
   vm$: Observable<fromAuthSelectors.AuthLinksViewModel>;
+
   constructor(
     private store: Store<AppState>
   ) { }
@@ -20,6 +22,6 @@ export class AuthLinksComponent implements OnInit {
   }
 
   logOut(): void {
-    
+    this.store.dispatch(fromAuthActions.logOut());
   }
 }

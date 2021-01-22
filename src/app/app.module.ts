@@ -14,6 +14,10 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 
+import { AppEffects } from './store/effects/app.effects';
+import { SpinnerEffects } from './store/effects/spinner.effects';
+import { AlertEffects } from './store/effects/alert.effects';
+import { RouteEffects } from './store/effects/route.effects';
 import { CustomerSupportEffects } from './store/effects/customer-support.effects';
 
 import { reducers, metaReducers } from './store';
@@ -23,9 +27,6 @@ import { CoreComponent } from './core/core.component';
 import { TopBarComponent } from './shared/top-bar/top-bar.component';
 
 import { environment } from '../environments/environment';
-import { SpinnerEffects } from './store/effects/spinner.effects';
-import { AlertEffects } from './store/effects/alert.effects';
-import { RouteEffects } from './store/effects/route.effects';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,13 @@ import { RouteEffects } from './store/effects/route.effects';
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    EffectsModule.forRoot([CustomerSupportEffects, SpinnerEffects, AlertEffects, RouteEffects])
+    EffectsModule.forRoot([
+      CustomerSupportEffects,
+      SpinnerEffects,
+      AlertEffects,
+      RouteEffects,
+      AppEffects
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent],

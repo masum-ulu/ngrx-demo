@@ -6,12 +6,20 @@ import * as fromAuthActions from '../actions/auth.actions';
 
 @Injectable()
 export class RouteEffects {
-
   goShopping$ = createEffect(
     () =>
       this.actions$.pipe(
         ofType(fromAuthActions.loginSuccess),
         tap(() => this.route.navigate(['product']))
+      ),
+    { dispatch: false }
+  );
+
+  goHome$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(fromAuthActions.logOut),
+        tap(() => this.route.navigate(['home']))
       ),
     { dispatch: false }
   );

@@ -42,5 +42,16 @@ export const reducer = createReducer(
       error: action.error
     };
   }),
+  on(AuthActions.logOut, (state, action) => {
+    return {
+      ...state,
+      user: {
+        id: null,
+        username: null,
+        email: null,
+        isadmin: null
+      },
+      error: null
+    };
+  }),
 );
-
