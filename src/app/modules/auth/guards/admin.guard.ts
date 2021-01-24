@@ -1,21 +1,26 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
+import { select, Store } from '@ngrx/store';
+import { AppState } from 'src/app/store';
+import { selectIsAdmin } from 'src/app/store/selectors/auth.selectors';
 import { User } from '../models/auth';
 
 @Injectable({
     providedIn: 'root',
 })
 export class AdminGuard implements CanActivate {
-    // user: User = JSON.parse(localStorage.getItem('user'));
+    isAdmin: boolean;
 
-    constructor(private router: Router) { }
+    constructor(private store: Store<AppState>, private router: Router) { }
     
     canActivate(): boolean {
-        let _user: User = JSON.parse(localStorage.getItem('user'));
-        if (_user && !_user.isadmin) {
-            this.router.navigate(['/home']);
-            return false;
-        }
-        return true;
+        this.store.pipe(select(selectIsAdmin))
+            .subscribe((bool) => {
+                this.isAdmin = bool;
+                if (!this.isAdmin) {
+                    this.router.navigate(['/home']);
+                }
+            });
+        return this.isAdmin;
     }
 }
