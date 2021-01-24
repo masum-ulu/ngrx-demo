@@ -1,5 +1,6 @@
 <div class="auth-links" *ngIf="vm$ | async as vm">
-    <a *ngIf="vm.isLoggedIn" class="user-link" [routerLink]="['product']"><i class="fas fa-user"></i> User</a>
+    <a *ngIf="vm.isLoggedIn && !vm.isAdmin" class="user-link" [routerLink]="['product']"><i class="fas fa-user"></i> User</a>
+    <a *ngIf="vm.isAdmin" class="user-link" [routerLink]="['product/list']"><i class="fas fa-user"></i> Admin</a>
     <a *ngIf="!vm.isLoggedIn" [routerLink]="['login']" routerLinkActive="active"><i class="fas fa-sign-in-alt"></i> Login Page</a>
     <a *ngIf="vm.isLoggedIn" class="auth-logout-link" (click)="logOut()"><i class="fas fa-sign-out-alt"></i> Logout</a>
 </div>

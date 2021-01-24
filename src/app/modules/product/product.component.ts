@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/store';
 import { Product } from './models/product';
-import { ProductService } from './services/product.service';
+import * as fromProductActions from './state/product.actions';
 
 @Component({
   selector: 'app-product',
@@ -11,10 +13,10 @@ export class ProductComponent implements OnInit {
   title: string = "Products";
   products: Product[] = null;
 
-  constructor(private productService: ProductService) { }
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe(response => this.products = response, err => console.log(err));
+    this.store.dispatch(fromProductActions.loadProducts());
   }
 
 }
