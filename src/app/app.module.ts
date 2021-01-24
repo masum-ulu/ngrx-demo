@@ -13,6 +13,7 @@ import { ProductModule } from './modules/product/product.module';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 import { AppEffects } from './store/effects/app.effects';
 import { SpinnerEffects } from './store/effects/spinner.effects';
@@ -64,7 +65,8 @@ import { environment } from '../environments/environment';
       AlertEffects,
       RouteEffects,
       AppEffects
-    ])
+    ]),
+    StoreRouterConnectingModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],
