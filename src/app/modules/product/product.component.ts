@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { AppState } from 'src/app/store';
-import { Product } from './models/product';
+
 import * as fromProductActions from './state/product.actions';
+import * as fromProductSelectors from './state/product.selectors';
 
 @Component({
   selector: 'app-product',
@@ -11,12 +13,17 @@ import * as fromProductActions from './state/product.actions';
 })
 export class ProductComponent implements OnInit {
   title: string = "Products";
-  products: Product[] = null;
+  vm$: Observable<fromProductSelectors.ProductViewModel>;
 
   constructor(private store: Store<AppState>) { }
 
-  ngOnInit(): void {
+  private loadProducts(): void {
     this.store.dispatch(fromProductActions.loadProducts());
+  }
+
+  ngOnInit(): void {
+    this.loadProducts();
+    this.vm$ = this.store.pipe(select(fromProductSelectors.selectProductsViewModel));
   }
 
 }

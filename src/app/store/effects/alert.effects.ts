@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { ToastrService } from 'ngx-toastr';
 import { tap } from 'rxjs/operators';
+
 import * as fromAuthActions from '../actions/auth.actions';
+import * as fromProductActions from '../../modules/product/state/product.actions';
 
 @Injectable()
 export class AlertEffects {
@@ -51,6 +53,19 @@ export class AlertEffects {
       ),
     { dispatch: false }
   );
+
+  unableToLoadProducts$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(fromProductActions.loadProductsFailure),
+        tap(() =>
+          setTimeout(() => {
+            this.toastr.error('Unable to load products');
+          }, 2000)
+        )
+      ),
+    { dispatch: false }
+  )
   constructor(
     private actions$: Actions,
     private toastr: ToastrService
