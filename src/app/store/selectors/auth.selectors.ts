@@ -7,7 +7,7 @@ export const selectAuthState = createFeatureSelector<fromAuth.State>(
 
 export interface AuthLinksViewModel {
   isAdmin: boolean;
-  isLoggedin: boolean;
+  isLoggedIn: boolean;
 }
 
 export const selectIsLoggedIn = createSelector(
@@ -15,13 +15,18 @@ export const selectIsLoggedIn = createSelector(
   (state: fromAuth.State): boolean => state.user.id != null
 );
 
-export const selectAuthLinksViewModel = createSelector(
+export const selectIsAdmin = createSelector(
   selectAuthState,
+  (state: fromAuth.State): boolean => state.user.isadmin
+);
+
+export const selectAuthLinksViewModel = createSelector(
+  selectIsAdmin,
   selectIsLoggedIn,
-  (state: fromAuth.State, isLoggedIn: boolean): AuthLinksViewModel => {
+  (isAdmin: boolean, isLoggedIn: boolean): AuthLinksViewModel => {
     return {
-      isAdmin: state.user.isadmin,
-      isLoggedin: isLoggedIn
+      isAdmin: isAdmin,
+      isLoggedIn: isLoggedIn
     };
   }
 );
