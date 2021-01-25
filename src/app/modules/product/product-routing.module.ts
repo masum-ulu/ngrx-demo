@@ -6,6 +6,7 @@ import { AuthGuard } from '../auth/guards/auth.guard';
 
 import { ProductComponent } from './product.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 
 const routes: Routes = [
     {
@@ -16,6 +17,10 @@ const routes: Routes = [
         path: 'list',
         component: ProductListComponent,
         canActivate: [AdminGuard]
+    },
+    {
+        path: 'detail/:id',
+        component: ProductDetailComponent
     }
 ];
 

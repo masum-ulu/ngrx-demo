@@ -29,9 +29,15 @@ export const reducer = createReducer(
       error: action.error
     };
   }),
-  on(ProductActions.addProduct,
+  on(ProductActions.loadProductSuccess,
     (state, action) => adapter.addOne(action.product, state)
   ),
+  on(ProductActions.loadProductFailure, (state, action) => {
+    return {
+      ...state,
+      error: action.error
+    };
+  }),
   on(ProductActions.upsertProduct,
     (state, action) => adapter.upsertOne(action.product, state)
   ),

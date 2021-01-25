@@ -12,11 +12,13 @@ import { ProductEffects } from './state/product.effects';
 import { ProductComponent } from './product.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 
 const components = [
   ProductComponent,
   ProductListComponent,
-  ProductCardComponent
+  ProductCardComponent,
+  ProductDetailComponent
 ];
 
 @NgModule({

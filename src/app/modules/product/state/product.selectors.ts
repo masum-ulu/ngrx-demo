@@ -11,6 +11,10 @@ export const selectAllProducts = createSelector(
     fromProductReducer.selectAll
 );
 
+export const selectAllEntities = createSelector(
+    selectProductsState,
+    fromProductReducer.selectEntities
+);
 
 export interface ProductViewModel {
     products: Product[];
@@ -23,4 +27,16 @@ export const selectProductsViewModel = createSelector(
             products: products
         }
     }
+);
+
+export const entityExists = createSelector(
+    selectAllEntities,
+    (entities, props): boolean => {
+        return entities[props.id] == undefined ? false : true;
+    }
+);
+
+export const selecetEntityById = createSelector(
+    selectAllEntities,
+    (entities, props) => entities[props.id]
 );

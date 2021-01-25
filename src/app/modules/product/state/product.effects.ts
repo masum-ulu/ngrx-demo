@@ -22,6 +22,20 @@ export class ProductEffects {
       )
   );
 
+  /**
+   * Load product api effect
+   */
+  loadProduct$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(fromProductActions.loadProduct),
+      mergeMap((action) =>
+        this.productService.getProduct(action.id).pipe(
+          map(product => fromProductActions.loadProductSuccess({ product })),//if props name and map param name is the same. Then we don't need use like product:product
+          catchError(error => of(fromProductActions.loadProductFailure({ error }))))
+      )
+    )
+  );
+
   constructor(
     private actions$: Actions,
     private productService: ProductService
