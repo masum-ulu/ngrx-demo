@@ -33,9 +33,7 @@ export class ProductDetailComponent implements OnInit {
           this.store.dispatch(fromProductAction.loadProduct({ id: id }));
         }
 
-        return this.store.pipe(
-          select(fromProductSelectors.selecetEntityById, { id: id })
-        );
+        return this.store.pipe(select(fromProductSelectors.selecetEntityById, { id: id }));
       })
     );
   }
