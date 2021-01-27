@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { tap } from 'rxjs/operators';
 import * as fromAuthActions from '../actions/auth.actions';
+import * as fromProductActions from '../../modules/product/state/product.actions';
 
 @Injectable()
 export class RouteEffects {
@@ -20,6 +21,15 @@ export class RouteEffects {
       this.actions$.pipe(
         ofType(fromAuthActions.logOut),
         tap(() => this.route.navigate(['home']))
+      ),
+    { dispatch: false }
+  );
+
+  goProductList$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(fromProductActions.upsertProductSuccess),
+        tap(() => this.route.navigate(['/product/list']))
       ),
     { dispatch: false }
   );

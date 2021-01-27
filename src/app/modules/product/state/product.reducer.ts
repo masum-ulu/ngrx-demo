@@ -23,43 +23,13 @@ export const reducer = createReducer(
   on(ProductActions.loadProductsSuccess, (state, action) =>
     adapter.setAll(action.products, state)
   ),
-  on(ProductActions.loadProductsFailure, (state, action) => {
-    return {
-      ...state,
-      error: action.error
-    };
-  }),
   on(
     ProductActions.loadProductSuccess,
     ProductActions.addProductSuccess,
     (state, action) => adapter.addOne(action.product, state)
   ),
-  on(ProductActions.loadProductFailure, (state, action) => {
-    return {
-      ...state,
-      error: action.error
-    };
-  }),
-  on(ProductActions.addProductFailure, (state, action) => {
-    return {
-      ...state,
-      error: action.error
-    };
-  }),
-  on(ProductActions.upsertProduct,
-    (state, action) => adapter.upsertOne(action.product, state)
-  ),
-  on(ProductActions.addProducts,
-    (state, action) => adapter.addMany(action.products, state)
-  ),
-  on(ProductActions.upsertProducts,
-    (state, action) => adapter.upsertMany(action.products, state)
-  ),
-  on(ProductActions.updateProduct,
-    (state, action) => adapter.updateOne(action.product, state)
-  ),
-  on(ProductActions.updateProducts,
-    (state, action) => adapter.updateMany(action.products, state)
+  on(ProductActions.upsertProductSuccess, (state, action) =>
+    adapter.upsertOne(action.product, state)
   ),
   on(ProductActions.deleteProduct,
     (state, action) => adapter.removeOne(action.id, state)
@@ -70,6 +40,18 @@ export const reducer = createReducer(
   on(ProductActions.clearProducts,
     state => adapter.removeAll(state)
   ),
+  on(
+    ProductActions.upsertProductFailure,
+    ProductActions.loadProductsFailure,
+    ProductActions.addProductFailure,
+    ProductActions.loadProductFailure,
+    (state, action) => {
+      return {
+        ...state,
+        error: action.error,
+      };
+    }
+  )
 );
 
 

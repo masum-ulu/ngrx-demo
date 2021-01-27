@@ -88,6 +88,32 @@ export class AlertEffects {
       ),
     { dispatch: false }
   );
+
+  productUpsertSuccess$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(fromProductActions.upsertProductSuccess),
+        tap(() =>
+          setTimeout(() => {
+            this.toastr.info('Product Updated');
+          }, 1000)
+        )
+      ),
+    { dispatch: false }
+  );
+  unableToEditProduct$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(fromProductActions.upsertProductFailure),
+        tap(() =>
+          setTimeout(() => {
+            this.toastr.error('Unable to edit product');
+          }, 1000)
+        )
+      ),
+    { dispatch: false }
+  );
+
   constructor(
     private actions$: Actions,
     private toastr: ToastrService

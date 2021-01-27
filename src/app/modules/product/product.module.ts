@@ -14,6 +14,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { ProductAddComponent } from './components/product-add/product-add.component';
+import { ProductEditComponent } from './components/product-edit/product-edit.component';
 
 const components = [
   ProductComponent,
@@ -21,6 +22,7 @@ const components = [
   ProductCardComponent,
   ProductDetailComponent,
   ProductAddComponent,
+  ProductEditComponent
 ];
 
 @NgModule({
