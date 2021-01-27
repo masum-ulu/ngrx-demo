@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AdminGuard } from '../auth/guards/admin.guard';
-import { AuthGuard } from '../auth/guards/auth.guard';
 
 import { ProductComponent } from './product.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { ProductAddComponent } from './components/product-add/product-add.component';
 
 const routes: Routes = [
     {
@@ -21,6 +21,11 @@ const routes: Routes = [
     {
         path: 'detail/:id',
         component: ProductDetailComponent
+    },
+    {
+        path: 'add',
+        component: ProductAddComponent,
+        canActivate: [AdminGuard]
     }
 ];
 

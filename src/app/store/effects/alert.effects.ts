@@ -65,7 +65,29 @@ export class AlertEffects {
         )
       ),
     { dispatch: false }
-  )
+  );
+
+  productCreated$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(fromProductActions.addProductSuccess),
+        tap(() => this.toastr.success('Product Created'))
+      ),
+    { dispatch: false }
+  );
+
+  unableToCreateProduct$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(fromProductActions.addProductFailure),
+        tap(() =>
+          setTimeout(() => {
+            this.toastr.error('Unable to create product');
+          }, 2000)
+        )
+      ),
+    { dispatch: false }
+  );
   constructor(
     private actions$: Actions,
     private toastr: ToastrService

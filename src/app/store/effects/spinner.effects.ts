@@ -15,7 +15,8 @@ export class SpinnerEffects {
           fromAuthActions.loginPage,
           fromProductActions.loadProducts,
           fromProductActions.loadAdminProducts,
-          fromProductActions.loadProduct
+          fromProductActions.loadProduct,
+          fromProductActions.addProduct,
         ),
         tap(() => this.spinner.show())
       ),
@@ -31,7 +32,9 @@ export class SpinnerEffects {
           fromProductActions.loadProductsSuccess,
           fromProductActions.loadProductsFailure,
           fromProductActions.loadProductSuccess,
-          fromProductActions.loadProductFailure
+          fromProductActions.loadProductFailure,
+          fromProductActions.addProductSuccess,
+          fromProductActions.addProductFailure,
         ),
         tap(() => {
           setTimeout(() => {
@@ -45,5 +48,4 @@ export class SpinnerEffects {
     private actions$: Actions,
     private spinner: NgxSpinnerService
   ) { }
-
 }

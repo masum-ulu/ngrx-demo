@@ -25,6 +25,13 @@
             "price": 1800.00,
             "imageUrl": "https://www.sbsmobile.com/gbr/160973-thickbox_default/skinny-cover-for-xiaomi-redmi-5-plus.jpg",
             "quantity": 170
+        },
+        {
+            "name": "Excalibur G770",
+            "price": 9520.00,
+            "quantity": 10,
+            "imageUrl": "https://file.casper.com.tr/series/38/1607695246_excalibur-g770-1-2.png",
+            "id": 3
         }
     ]
 }
