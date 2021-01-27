@@ -25,4 +25,8 @@ export class ProductListComponent implements OnInit {
     this.vm$ = this.store.pipe(select(fromProductSelectors.selectProductsViewModel));
   }
 
+  deleteOnClick(id: number): void {
+    this.store.dispatch(fromProductActions.deleteProduct({ id: id }));
+  }
+
 }

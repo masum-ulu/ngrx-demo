@@ -67,6 +67,23 @@ export class ProductEffects {
     )
   );
 
+  /**
+   * Delete product api effect 
+   */
+  deleteProduct$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(fromProductActions.deleteProduct),
+      mergeMap((action) =>
+        this.productService.deleteProduct(action.id).pipe(
+          map(() => fromProductActions.deleteProductSuccess()),
+          catchError((error) =>
+            of(fromProductActions.deleteProductFailure({ error }))
+          )
+        )
+      )
+    )
+  );
+
   constructor(
     private actions$: Actions,
     private productService: ProductService

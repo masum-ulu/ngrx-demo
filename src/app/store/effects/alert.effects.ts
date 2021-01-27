@@ -114,6 +114,43 @@ export class AlertEffects {
     { dispatch: false }
   );
 
+  removeProductFromStore$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(fromProductActions.deleteProductSuccess),
+        tap(() =>
+          setTimeout(() => {
+            this.toastr.warning('Remove product from store');
+          }, 1000)
+        )
+      ),
+    { dispatch: false }
+  );
+  productDeleted$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(fromProductActions.deleteProductSuccess),
+        tap(() =>
+          setTimeout(() => {
+            this.toastr.info('Product removed from Database');
+          }, 1000)
+        )
+      ),
+    { dispatch: false }
+  );
+  unableToDeleteProduct$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(fromProductActions.deleteProductFailure),
+        tap(() =>
+          setTimeout(() => {
+            this.toastr.error('Unable to delete product');
+          }, 1000)
+        )
+      ),
+    { dispatch: false }
+  );
+
   constructor(
     private actions$: Actions,
     private toastr: ToastrService
