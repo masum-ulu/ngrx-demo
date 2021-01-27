@@ -11,7 +11,7 @@ import { Product } from '../models/product';
   providedIn: 'root'
 })
 export class ProductService {
-  private baseUrl: string = `${environment.apiUrl}products`;
+  private baseUrl: string = `${environment.apiUrl}products/`;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -20,7 +20,7 @@ export class ProductService {
   }
 
   getProduct(id: number): Observable<Product> {
-    return this.httpClient.get<Product>(`${this.baseUrl}/${id}`);
+    return this.httpClient.get<Product>(`${this.baseUrl}${id}`);
   }
 
   addProduct(product: Product): Observable<Product> {
@@ -28,10 +28,10 @@ export class ProductService {
   }
 
   updateProduct(product: Product): Observable<Product> {
-    return this.httpClient.put<Product>(`${this.baseUrl}/${product.id}`, product);
+    return this.httpClient.put<Product>(`${this.baseUrl}${product.id}`, product);
   }
 
   deleteProduct(id: number) {
-    return this.httpClient.delete(`${this.baseUrl}/${id}`);
+    return this.httpClient.delete(`${this.baseUrl}${id}`);
   }
 }
