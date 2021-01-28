@@ -1,27 +1,33 @@
+# Introduction
+
+Hello everyone, this project i made to learn 'state management' with [ngrx](https://ngrx.io)
+
+Source i watch: `https://www.youtube.com/watch?v=oHmreG1Sul0&list=PLV-DQnYj14bRFWMmuT6ptSL4v5fxMJnOS&ab_channel=OOPCoders`
+
 # NgrxDemo
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.7.
+[Angular](https://angular.io)
+
+## Required packages
+
+Clone project to your local with `https://github.com/masumulu28/ngrx-demo.git`. After go to project folder and open Command Prompt paste: `npm install`.
+
+For backend i'm using json-server package. Install json-server package: `https://www.npmjs.com/package/json-server` | `npm install json-server`
+
+For run paralel project (Angular and Json Server) install [Concurrently](https://www.npmjs.com/package/concurrently) | `npm install concurrently`
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+I write my custom script to package.json `"dev": "concurrently \"npm run server\" \"npm run start\""`.
 
-## Code scaffolding
+Run `npm run dev` for start app. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Also you can run separately angular project and json server.
+
+Angular run: `ng serve | ng s`
+Json Server run: Go to `db.json` file location and open Command Prompt paste: `json-server --watch db.json`
 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
