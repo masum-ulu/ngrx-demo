@@ -2,7 +2,7 @@
 
 Hello everyone, this project i made to learn 'state management' with [ngrx](https://ngrx.io)
 
-Source i watch: `https://www.youtube.com/watch?v=oHmreG1Sul0&list=PLV-DQnYj14bRFWMmuT6ptSL4v5fxMJnOS&ab_channel=OOPCoders`
+Source i watch: [https://www.youtube.com/watch?v=oHmreG1Sul0&list=PLV-DQnYj14bRFWMmuT6ptSL4v5fxMJnOS&ab_channel=OOPCoders](https://www.youtube.com/watch?v=oHmreG1Sul0&list=PLV-DQnYj14bRFWMmuT6ptSL4v5fxMJnOS&ab_channel=OOPCoders)
 
 # NgrxDemo
 
